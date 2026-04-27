@@ -12,27 +12,27 @@ A production-style DevOps upgrade of a YOLOv5-based object detection application
 ---
 
 ## Architecture
+
+```
 Developer pushes code to GitHub (main branch)
-|
-v
-GitHub Actions CI/CD Pipeline
-- Builds Docker image
-- Pushes to Docker Hub (djjoel/yolov5-detection:latest)
-|
-v
-AWS EC2 Kubernetes Cluster (kubeadm)
-+----------------+   +-----------------+   +-----------------+
-| Master Node    |   | Worker Node 1   |   | Worker Node 2   |
-| t2.medium      |   | t3.small        |   | t3.small        |
-| Control Plane  |   | Runs Pods       |   | Runs Pods       |
-+----------------+   +-----------------+   +-----------------+
-|
-YOLOv5 Detection Pod
-Streamlit UI on port 8501
-Exposed via NodePort 30001
-
----
-
+                |
+                v
+     GitHub Actions CI/CD Pipeline
+     - Builds Docker image
+     - Pushes to Docker Hub (djjoel/yolov5-detection:latest)
+                |
+                v
+     AWS EC2 Kubernetes Cluster (kubeadm)
+     +----------------+   +-----------------+   +-----------------+
+     | Master Node    |   | Worker Node 1   |   | Worker Node 2   |
+     | t2.medium      |   | t3.small        |   | t3.small        |
+     | Control Plane  |   | Runs Pods       |   | Runs Pods       |
+     +----------------+   +-----------------+   +-----------------+
+                                  |
+                        YOLOv5 Detection Pod
+                        Streamlit UI on port 8501
+                        Exposed via NodePort 30001
+```
 ## Tech Stack
 
 | Tool | Purpose |
