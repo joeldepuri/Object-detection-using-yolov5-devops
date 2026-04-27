@@ -21,20 +21,20 @@ spec:
             - containerPort: 8501
           resources:
             requests:
-              memory: "512Mi"
-              cpu: "500m"
+              memory: "256Mi"
+              cpu: "250m"
             limits:
-              memory: "1Gi"
+              memory: "1500Mi"
               cpu: "1000m"
           livenessProbe:
             httpGet:
               path: /
               port: 8501
-            initialDelaySeconds: 60
+            initialDelaySeconds: 120
             periodSeconds: 30
           readinessProbe:
             httpGet:
               path: /
               port: 8501
-            initialDelaySeconds: 60
+            initialDelaySeconds: 120
             periodSeconds: 10
