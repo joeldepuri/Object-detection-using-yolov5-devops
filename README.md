@@ -108,6 +108,8 @@ No manual build steps — every commit ships automatically.
 ---
 
 ## Project Structure
+
+```
 Object-detection-using-yolov5-devops/
 ├── app.py                        # Streamlit web application
 ├── Dockerfile                    # How the container is built
@@ -119,6 +121,7 @@ Object-detection-using-yolov5-devops/
 │   └── workflows/
 │       └── ci-cd.yml             # GitHub Actions pipeline
 └── README.md
+```
 
 ## About Me
 
