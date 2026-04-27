@@ -1,0 +1,10 @@
+.git
+__pycache__
+*.pyc
+*.pyo
+datasets/
+*.jpg
+*.png
+*.mp4
+.env
+node_modules

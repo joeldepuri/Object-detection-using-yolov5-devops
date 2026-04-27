@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolov5-detection
+  labels:
+    app: yolov5-detection
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yolov5-detection
+  template:
+    metadata:
+      labels:
+        app: yolov5-detection
+    spec:
+      containers:
+        - name: yolov5-detection
+          image: djjoel/yolov5-detection:latest
+          ports:
+            - containerPort: 8501
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8501
+            initialDelaySeconds: 60
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8501
+            initialDelaySeconds: 60
+            periodSeconds: 10
